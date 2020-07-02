@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_GPIOShutdown/templates *
+recursive-include octoprint_GPIOShutdown/translations *
+recursive-include octoprint_GPIOShutdown/static *

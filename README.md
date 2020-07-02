@@ -15,6 +15,9 @@ or manually using this URL:
 
 In web interface, install the plugin and reload if necessary, then click on GPIO Shutdown, you will have:
 
-Pin Shutdown: Raspberry Pi GPIO pin (BCM Mode) your shutdown switch is attached to (-1 disables the plugin)
-Pin Led: Raspberry Pi GPIO pin (BCM Mode) your ready-to-run led attached to (-1 disables the plugin)
-Debounce Time: When press the shutdown switch, wait for this amount of time to wait for the signal to stabilize.
+- Pin Shutdown: Raspberry Pi GPIO pin (BCM Mode) your shutdown switch is attached to.
+- Pin Led: Raspberry Pi GPIO pin your ready-to-run led attached to. This led will turn On when OctoPrint is up and ready to run/connect.
+- Debounce Time: When press the shutdown switch, wait for this amount of time to wait for the signal to stabilize.
+
+You can find the GPIO pin number assignments at [Raspberry Pi GPIO Pinout](https://www.raspberrypi.org/documentation/usage/gpio/).
+

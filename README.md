@@ -25,6 +25,5 @@ You can find the GPIO pin number assignments at [Raspberry Pi GPIO Pinout](https
 #### Support me
 
 This plugin was developed in my spare time.
-If you find it useful and like it, you can support me by clicking the button below :)
+If you find it useful and like it [Buy me a beer](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WHCDYE3DCBW2Y&source=url), cheers :)
 
-[![Buy me a beer](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=WHCDYE3DCBW2Y&source=url)

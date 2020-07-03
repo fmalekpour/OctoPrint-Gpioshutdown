@@ -24,6 +24,8 @@ class GpioshutdownPlugin(
 
 	def initialize(self):
 		self.activated = 0
+		self.last_shutdown_pin = -1
+		self.last_led_pin = -1
 		self._logger.info("Running RPi.GPIO version '{0}'".format(GPIO.VERSION))
 		if GPIO.VERSION < "0.6":       # Need at least 0.6 for edge detection
 			raise Exception("RPi.GPIO must be greater than 0.6")
@@ -52,13 +54,17 @@ class GpioshutdownPlugin(
 		return [dict(type="settings", custom_bindings=False)]
 
 	def _setup_sensor(self):
-		try:
-			GPIO.cleanup()
-		except:
-			self._logger.exception("Error cleanup the GPIO")
+		self.cleanup_last_channel(self.last_shutdown_pin)
+		self.cleanup_last_channel(self.last_led_pin)
 
 		if self.shutdown_pin_enabled() or self.led_pin_enabled():
-			GPIO.setmode(GPIO.BCM)
+			try:
+				GPIO.setmode(GPIO.BCM)
+			except:
+				pass
+
+		self.last_shutdown_pin = self.pin_shutdown
+		self.last_led_pin = self.pin_led
 
 		if self.shutdown_pin_enabled():
 			GPIO.setup(self.pin_shutdown, GPIO.IN, pull_up_down=GPIO.PUD_UP)
@@ -71,6 +77,17 @@ class GpioshutdownPlugin(
 		if self.led_pin_enabled():
 			GPIO.setup(self.pin_led, GPIO.OUT, initial=GPIO.HIGH)
 			GPIO.output(self.pin_led, GPIO.HIGH)
+
+	def cleanup_last_channel(self, channel):
+		if channel!=-1:
+			try:
+				GPIO.remove_event_detect(channel)
+			except:
+				pass
+			try:
+				GPIO.cleanup(channel)
+			except:
+				pass
 
 
 	def _shutdown_sensor(self):

@@ -2,7 +2,7 @@
 
 GPIO Shutdown is a simple plugin that can shutdown the Raspberry Pi if a switch connected to ground and one of the GPIO pins pressed. This plugin also turns On a led when Octoprint server is up and running. Connect a led to one of the GPIO pins and other end to ground, then set the pin number (BCM Mode) in plugin settings in web interface.
 
-![Pin Setup](https://github.com/fmalekpour/OctoPrint-Gpioshutdown/blob/master/screenshots/gpio-shutdown_bb.jpg =400x)
+![Pin Setup](https://github.com/fmalekpour/OctoPrint-Gpioshutdown/blob/master/screenshots/gpio-shutdown_bb.jpg){width=500px}
 
 ## Setup
 

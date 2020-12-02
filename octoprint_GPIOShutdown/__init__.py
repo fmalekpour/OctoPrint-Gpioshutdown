@@ -105,8 +105,10 @@ class GpioshutdownPlugin(
 		if self._printer.get_state_id() != "PRINTING" and self._printer.is_printing() == False:
 			self.activated = 1
 			self._logger.info("Sensor triggered!")
+			shutdown_command = self._settings.global_get(["server", "commands", "systemShutdownCommand"])   #SRJ
+			self._logger.info(shutdown_command)								#SRJ
 			try:
-				os.system("sudo shutdown -h now")
+				os.system(shutdown_command)
 			except:
 				e = sys.exc_info()[0]
 				self._logger.exception("Error executing shutdown command")

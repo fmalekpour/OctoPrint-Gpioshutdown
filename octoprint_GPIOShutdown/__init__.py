@@ -101,7 +101,7 @@ class GpioshutdownPlugin(
 	def sensor_callback(self, _):
 		sleep(self.bounce/1000)
 		if GPIO.input(self.pin_shutdown)==1:
-			self._logger.info("GPIO is '{0}' after Holdtime. NO shutdown".format(GPIO.input(self.pin_shutdown_)))
+			self._logger.info("GPIO is '{0}' after Holdtime. NO shutdown".format(GPIO.input(self.pin_shutdown)))
 			return
 		if self.activated==1:
 			return
